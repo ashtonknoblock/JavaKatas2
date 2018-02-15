@@ -12,9 +12,10 @@ newElement1.textContent = JSON.stringify(gotCitiesCSV);
 newElement1.appendChild(span1);
 
 //2 Display an array of words from the sentence in bestThing
+let ok = bestThing.split(" ");
 let span2 = document.createElement("span");
 let newElement2 = document.getElementById("div2");
-newElement2.textContent = JSON.stringify(bestThing);
+newElement2.textContent = (ok);
 newElement2.appendChild(span2);
 
 //3 Display a string separated by semi-colons instead of commas from gotCitiesCSV
@@ -164,28 +165,25 @@ function Kataeighteen() {
 
 //19 Find and display all cities from gotCitiesCSV  that use double vowels ("aa","ee", etc.)
 function vowels() {
-  gotCitiesCSV
-  if (gotCitiesCSV.includes("ee") === true) {
+  let splitgotCitiesCSV = gotCitiesCSV.split(",")
+  for (let i = 0; i < splitgotCitiesCSV.length; i++) {
+    if (splitgotCitiesCSV[i].includes("aa") || splitgotCitiesCSV[i].includes("ee") || splitgotCitiesCSV[i].includes("ii") || splitgotCitiesCSV[i].includes("oo") || splitgotCitiesCSV[i].includes("uu")){
     let span19 = document.createElement("span");
     let newElement19 = document.getElementById("div19");
-    newElement19.textContent = (gotCitiesCSV);
+    newElement19.textContent = (splitgotCitiesCSV[i]);
     newElement19.appendChild(span19);
-    console.log(gotCitiesCSV);
-  } else if (gotCitiesCSV.includes("aa") === true) {
-    let span19 = document.createElement("span");
-    let newElement19 = document.getElementById("div19");
-    newElement19.textContent = (gotCitiesCSV);
-    newElement19.appendChild(span19);
+    }
   }
 };
 
 //20 Find and display all cities from lotrCitiesArray that end with "or"
 function EndInOr() {
-  for (i = 0; i < lotrCitiesArray.length; i++) {
-    if (lotrCitiesArray[i].endsWith('or') === true) {
-      let span20 = document.createElement("span");
-      let newElement20 = document.getElementById("div20");
-      newElement20.textContent = (lotrCitiesArray[i]);
+  let newElement20 = document.getElementById("div20");
+  for (let i = 0; i < lotrCitiesArray.length; i++) {
+    if (lotrCitiesArray[i].endsWith('or')) {
+      console.log(lotrCitiesArray[i]);
+      let span20 = document.createElement("div");
+      span20.textContent = (lotrCitiesArray[i]);
       newElement20.appendChild(span20);
     }
   }
@@ -194,12 +192,12 @@ function EndInOr() {
 
 //21 Find and display all the words in bestThing that start with a "b"
 function startWithaB() {
-  var withaB = 0;
-  for (i = 0; i < bestThing.length; i++) {
-    if (bestThing[i].startsWith('b') === true) {
-      let span21 = document.createElement("span");
-      let newElement21 = document.getElementById("div21");
-      newElement21.textContent = (bestThing);
+  let newElement21 = document.getElementById("div21");
+  let splitBestThing = bestThing.split(" ");
+  for (i = 0; i < splitBestThing.length; i++) {
+    if (splitBestThing[i].startsWith('b')) {
+      let span21 = document.createElement("div");
+      span21.textContent = (splitBestThing[i]);
       newElement21.appendChild(span21);
     }
   }
